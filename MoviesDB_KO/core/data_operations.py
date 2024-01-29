@@ -162,15 +162,10 @@ class ApiOperations(BaseCommand):
     # This class contains all the functions aplicable to the api mode in text client
     API_BASE_URL = "http://127.0.0.1:8000"
 
-<<<<<<< HEAD
     @cache_response(timeout=60) # api requests will be stored in local cache for 60 seconds
-    def add_actor(self, name, date_of_birth=None, latest_movie=None):
-        actor_data = {
-=======
     def add_actor(self, name: str, date_of_birth=None, latest_movie=None):
         # Function responsible for adding an actor through api
         actor_data: dict = {
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
             'name': name,
             'date_of_birth': date_of_birth,
             'latest_movie': latest_movie
@@ -197,14 +192,10 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
-    @cache_response(timeout=60)
-    def delete_actor(self, actor_id):
-=======
 
+    @cache_response(timeout=60)
     def delete_actor(self, actor_id: int):
         # Function responsible for deleting an actor from the database through api
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.delete(f"{self.API_BASE_URL}/actors/{actor_id}/")
 
         if response.status_code == 204:
@@ -216,14 +207,10 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
-    @cache_response(timeout=60)
-    def get_movies_for_actor(self, actor_id):
-=======
 
+    @cache_response(timeout=60)
     def get_movies_for_actor(self, actor_id: int):
         # Function responsible for getting data through api about movies that include acting performance of a chosen actor
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.get(
             f"{self.API_BASE_URL}/actors/{actor_id}/movies/")
         if response.status_code == 200:
@@ -239,16 +226,11 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
+            
     @cache_response(timeout=60)
-    def add_director(self, name, date_of_birth=None, latest_movie=None):
-        director_data = {
-=======
-
     def add_director(self, name: str, date_of_birth=None, latest_movie=None):
         # Function responsible for adding a director to the database through api
         director_data: dict = {
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
             'name': name,
             'date_of_birth': date_of_birth,
             'latest_movie': latest_movie
@@ -276,14 +258,10 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
-    @cache_response(timeout=60)
-    def delete_director(self, director_id):
-=======
 
+    @cache_response(timeout=60)
     def delete_director(self, director_id: int):
         # Function responsible for deleting a director from the database through api
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.delete(
             f"{self.API_BASE_URL}/directors/{director_id}/")
 
@@ -296,14 +274,10 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
-    @cache_response(timeout=60)
-    def get_movies_for_director(self, director_id):
-=======
 
+    @cache_response(timeout=60)
     def get_movies_for_director(self, director_id: int):
         # Function responsible for getting data through api about all the movies directed by a selected director in the database
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.get(
             f"{self.API_BASE_URL}/directors/{director_id}/movies/")
         if response.status_code == 200:
@@ -319,14 +293,10 @@ class ApiOperations(BaseCommand):
         else:
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
-<<<<<<< HEAD
-    @cache_response(timeout=60)
-    def get_or_create(self, person_name, person_type):
-=======
 
+    @cache_response(timeout=60)
     def get_or_create(self, person_name: str, person_type: str):
         # Function that either gets data through api about an actor or director if a person of given name exists, if not it creates a person with that name
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.get(
             f"{self.API_BASE_URL}/{person_type}/{person_name}/")
         if response.status_code == 200:
@@ -343,15 +313,11 @@ class ApiOperations(BaseCommand):
         else:
             raise Exception(f"Unexpected exceptio when trying to get or create a {
                             person_type} object, status code: {response.status_code}")
-<<<<<<< HEAD
+
         
     @cache_response(timeout=60)
-    def add_movie(self, title, lead_actor_given, director_given, premiere_date=None, category=None, academy_awards=None):
-=======
-
     def add_movie(self, title: str, lead_actor_given: str, director_given: str, premiere_date=None, category=None, academy_awards=None):
         # Function responsible for adding a movie to the database through api
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         try:
             director = self.get_or_create(director_given, "directors")
             lead_actor = self.get_or_create(lead_actor_given, "actors")
@@ -409,13 +375,10 @@ class ApiOperations(BaseCommand):
             self.stdout.write(self.style.ERROR(
                 f"Error: {response.status_code}"))
 
-<<<<<<< HEAD
+
     @cache_response(timeout=60)
-    def delete_movie(self, movie_id):
-=======
     def delete_movie(self, movie_id: int):
         # Function responsible for deleting a movie from the database through api
->>>>>>> 080d626318b1fab90ccf1653b7b511d6696e5857
         response = requests.delete(f"{self.API_BASE_URL}/movies/{movie_id}/")
 
         if response.status_code == 204:
