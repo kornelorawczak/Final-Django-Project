@@ -11,10 +11,10 @@ There is also a simple caching technique, to speed up api operations.
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install pipenv, django, 
-django-extensions and djangorestframework
+django-extensions, requests and djangorestframework
 
 ```bash
-pip install pipenv, django, django-extensions, djangorestframework
+pip install pipenv, django, django-extensions, djangorestframework, requests
 ```
 
 If you want to use VSCode terminal with this django project you have to select a correct
